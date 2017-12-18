@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Images</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script>
+        $(window).load(function() {
+            add("img");
+
+        });
+        function add(type) {
+            //Create an input type dynamically.
+            var len = <%-JSON.stringify(arr)%>.length;
+            var data= new Array();
+
+            data.push(["index","title"]);
+            //console.log(data);
+            for(var i=0;i<15;i++) {
+                var temp = <%- JSON.stringify(arr) %>[i].title;
+                var element = document.createElement("img");
+                //Assign different attributes to the element.
+                element.type = type;
+                element.src = temp;
+                // Really? You want the default value to be the type string?
+                element.name = temp;
+                element.id = temp;
+                element.innerHTML = temp;
+
+                element.onclick = function () {
+                    //Nonclickabe image
+                };
+                var foo = document.getElementById("fooBar");
+                foo.appendChild(element);
+            }
+        }
+    </script>
+    <script>
+
+    </script>
+</head>
+<body>
+<form action="/" method="get">
+    <button>Go to Main Search Page</button>
+</form>
+<input type="button" id="btnAdd" value="Add Text Field" hidden="true">
+<p id="fooBar"></p>
+
+
+</body>
+</html>

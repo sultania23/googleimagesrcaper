@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>Search your query Here</h1>
+    <form action="/submit" method="post">
+        <fieldset>
+            <label for="textquery">Search:</label>
+            <input type="text" id="textquery" name="textquery" placeholder="Enter your Search Query" />
+
+            <input type="submit" value="Send Query" />
+
+        </fieldset>
+    </form>
+<br><br><br>
+
+
+  <form action="/retrieve" method="get">
+      <button>VIEW ALL Previous Searches</button>
+  </form>
+  </body>
+</html>

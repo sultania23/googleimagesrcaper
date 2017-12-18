@@ -1,0 +1,69 @@
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+<script language="JavaScript">
+</script>
+
+
+<script>
+    $(window).load(function() {
+
+        add("button");
+
+    });
+    function submit(data) {
+        //var data = document.getElementById('input123').value;
+        window.location = "/images?title="+data;
+    }
+
+    function add(type) {
+
+        //Create an input type dynamically.
+        var len = <%-JSON.stringify(arr)%>.length;
+        var data= new Array();
+
+        data.push(["index","title"]);
+
+        for(var i=0;i<len;i++) {
+            var temp = <%- JSON.stringify(arr) %>[i].title;
+            var element = document.createElement("button");
+            //Assign different attributes to the element.
+            element.type = type;
+            element.value = temp;
+            element.name = temp;
+            element.id = temp;
+
+            element.innerHTML = temp;
+            element.onclick = function () { // Note this is a function
+
+            };
+            var foo = document.getElementById("fooBar");
+            foo.appendChild(element);
+        }
+        var buttons = document.querySelectorAll('button');//added event listensers
+        for (var i=0; i<buttons.length; ++i) {
+            buttons[i].addEventListener('click', clickFunc);
+        }
+        function clickFunc() {
+            submit(this.id);
+            //alert(this.id);
+
+        }
+    }
+
+
+</script>
+</head>
+<body>
+<p id='-1'>ALL PREVOIUS SEARCH ARE:</p>
+<input type="button" value="Generate Table" hidden="true">
+<hr />
+<div id="dvTable">
+</div>
+<input type="button" id="btnAdd" value="Add Text Field" hidden="true">
+<p id="fooBar"></p>
+
+</body>
+</html>
